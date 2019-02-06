@@ -22,6 +22,10 @@ code {
   justify-content: flex-end;
 }
 
+.flex-reverse {
+  flex-direction: row-reverse;
+}
+
 button {
   cursor: pointer;
 }
