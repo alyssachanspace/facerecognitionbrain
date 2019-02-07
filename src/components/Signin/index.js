@@ -47,8 +47,8 @@ class Signin extends React.Component {
                 <input
                   className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                   type="email"
-                  name="email-address"
-                  id="email-address"
+                  name="email"
+                  id="email"
                   onChange={this.onEmailChange}
                 />
               </div>
@@ -63,7 +63,7 @@ class Signin extends React.Component {
                 />
               </div>
             </fieldset>
-            <div className="">
+            <div>
               <input
                 onClick={this.onSubmitSignIn}
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
