@@ -76,7 +76,7 @@ class App extends Component {
     this.setState({ input: e.target.value })
   }
 
-  onButtonSubmit = () => {
+  onImageSubmit = () => {
     this.setState({ imageUrl: this.state.input })
     app.models
       .predict(
@@ -111,7 +111,7 @@ class App extends Component {
               <Rank name={this.state.user.name} entries={this.state.user.entries} />
               <ImageLinkForm
                 onInputChange={this.onInputChange}
-                onButtonSubmit={this.onButtonSubmit}
+                onImageSubmit={this.onImageSubmit}
               />
               <FaceRecognition box={box} imageUrl={imageUrl} />
             </div>
