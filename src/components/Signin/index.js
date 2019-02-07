@@ -27,11 +27,14 @@ class Signin extends React.Component {
       })
     })
       .then(res => res.json())
-        .then(data => {
-          data === 'success'
-          ? this.props.onRouteChange('home')
-          : alert('Email and password is not valid')
-        })
+      .then(user => {
+        if (user.id) {
+          this.props.loadUser(user)
+          this.props.onRouteChange('home')
+        } else {
+          alert('Email and password is not valid')
+        }
+      })
   }
 
   render() {
