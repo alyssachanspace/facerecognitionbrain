@@ -5,7 +5,7 @@ import Navigation from './components/Navigation';
 import Signin from './components/Signin';
 import Register from './components/Register';
 import Logo from './components/Logo';
-import Rank from './components/Rank';
+import Count from './components/Count';
 import ImageLinkForm from './components/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition';
 import './App.css';
@@ -82,7 +82,22 @@ class App extends Component {
       .predict(
         Clarifai.FACE_DETECT_MODEL,
         this.state.input)
-      .then(response => this.displayFaceBox(this.calculateFaceLocation(response)))
+      .then(response => {
+        if (response) {
+          fetch('http://localhost:3000/image', {
+            method: 'put',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              id: this.state.user.id
+            })
+          })
+            .then(res => res.json())
+            .then(count => {
+              this.setState(Object.assign(this.state.user, { entries: count }))
+            })
+        }
+        this.displayFaceBox(this.calculateFaceLocation(response))
+      })
       .catch(err => console.log(err))
   }
 
@@ -108,7 +123,7 @@ class App extends Component {
         </div>
         { route === 'home'
           ? <div>
-              <Rank name={this.state.user.name} entries={this.state.user.entries} />
+              <Count name={this.state.user.name} entries={this.state.user.entries} />
               <ImageLinkForm
                 onInputChange={this.onInputChange}
                 onImageSubmit={this.onImageSubmit}
