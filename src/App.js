@@ -21,8 +21,6 @@ import './App.css';
 //   }
 // }
 
-
-
 const initialState = {
   input: '',
   imageUrl: '',
