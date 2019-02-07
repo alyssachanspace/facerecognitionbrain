@@ -26,7 +26,12 @@ class Signin extends React.Component {
         password: this.state.signInPassword
       })
     })
-    this.props.onRouteChange('home')
+      .then(res => res.json())
+        .then(data => {
+          data === 'success'
+          ? this.props.onRouteChange('home')
+          : alert('Email and password is not valid')
+        })
   }
 
   render() {
