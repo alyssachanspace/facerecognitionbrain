@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 // import Particles from 'react-particles-js';
-import Navigation from './components/Navigation';
-import Signin from './components/Signin';
-import Register from './components/Register';
-import Logo from './components/Logo';
-import Count from './components/Count';
-import ImageLinkForm from './components/ImageLinkForm';
-import FaceRecognition from './components/FaceRecognition';
+import Navigation from '../components/Navigation';
+import Signin from '../components/Signin';
+import Register from '../components/Register';
+import Logo from '../components/Logo';
+import Count from '../components/Count';
+import ImageLinkForm from '../components/ImageLinkForm';
+import FaceRecognition from '../components/FaceRecognition';
 import './App.css';
 
 // const particlesOptions = {
