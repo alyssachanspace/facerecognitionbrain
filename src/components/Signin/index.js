@@ -4,27 +4,25 @@ class Signin extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      signInEmail: '',
-      signInPassword: ''
+      email: '',
+      password: ''
     }
   }
 
   onEmailChange = (e) => {
-    this.setState({ signInEmail: e.target.value })
+    this.setState({ email: e.target.value })
   }
 
   onPasswordChange = (e) => {
-    this.setState({ signInPassword: e.target.value })
+    this.setState({ password: e.target.value })
   }
 
   onSubmitSignIn = () => {
+    const { email, password } = this.state
     fetch('https://tranquil-inlet-50338.herokuapp.com/signin', {
       method: 'post', 
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        email: this.state.signInEmail,
-        password: this.state.signInPassword
-      })
+      body: JSON.stringify({ email, password })
     })
       .then(res => res.json())
       .then(user => {
